@@ -15,8 +15,9 @@ def home(request):
 def login(request):
 	return render(request, 'login.html', {})
 
+
 def signupuser(request):
-	form = user_form(request.POST or None)
+	form = user_form(request.POST or None, request.FILES or None)
 	model_obj = signup()
 	if form.is_valid():
 		model_obj.First_name  = form.cleaned_data['First_name']
@@ -29,7 +30,10 @@ def signupuser(request):
 		return HttpResponseRedirect('/signup')
 	return render(request,'signup.html',{'form':form})
 
-	 
+
+
+#-------------- CRUD data --------------------
+# Read data from database	 
 def show_data(request,Last_name):
 	context = {}
 	context['data'] = signup.objects.get(Last_name = Last_name)

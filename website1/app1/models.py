@@ -1,7 +1,14 @@
 from django.db import models
 
-# Create your models here.
 
+
+#Function to upload images	(helper function)
+def uplaod_image(instance, filename):
+	''' Process images uploaded by users '''
+	return 'users/%s/%s'%(instance.Last_name,filename)
+
+
+# Create your models here.
 class signup(models.Model):
 	class Meta:
 		verbose_name_plural  = 'signups'
@@ -11,7 +18,7 @@ class signup(models.Model):
 	email = models.EmailField()
 	address = models.TextField()
 	job = models.CharField(max_length=70)
-	image = models.ImageField(upload_to='users/')
+	image = models.ImageField(upload_to=uplaod_image)
 
 
 	def __str__(self):
