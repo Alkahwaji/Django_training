@@ -5,5 +5,12 @@
 </head>
 <body>
 	<h1>Signup page</h1>
+	<form method="post" enctype="multipart/form-data"> <!-- enctype: all form to accept photo --> 
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="submit" name="submit">
+		
+	</form>
+		
 </body>
 </html>

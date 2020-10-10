@@ -1,6 +1,10 @@
 h1{
-	color: blue;
+	color: brown;
+
 }
 img{
 	border-radius: 100%;
+}
+button {
+	color:yellow;
 }
